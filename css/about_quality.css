@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Inner Pages (About Us, etc.)
+   ========================================================================== */
+
+.page-hero {
+    padding: 40px 0 40px;
+    background-color: var(--bg-off-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--text-light);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Our Story */
+.our-story {
+    padding: 60px 0;
+}
+
+.story-container {
+    max-width: 800px;
+}
+
+.story-content p {
+    font-size: 18px;
+    color: var(--text-body);
+}
+
+/* About Media */
+.about-media-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+}
+
+.about-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dual Advantage */
+.dual-advantage {
+    padding: 80px 0;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.advantage-card {
+    background: var(--bg-white);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.advantage-visual {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.advantage-visual img, .advantage-visual video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.advantage-card i {
+    font-size: 48px;
+    color: var(--gold);
+    margin-bottom: 24px;
+}
+
+.advantage-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+}
+
+.lead-text {
+    font-size: 20px;
+    color: var(--gold);
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+/* Registrations Table */
+.registration-table-wrapper {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+.registration-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-white);
+}
+
+.registration-table th, .registration-table td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.registration-table th {
+    background-color: var(--text-heading);
+    color: var(--bg-white);
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.registration-table td {
+    font-size: 15px;
+}
+
+/* Leadership */
+.leadership-flex {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.leadership-image {
+    flex: 0 0 400px;
+}
+
+.photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--bg-off-white);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-placeholder i {
+    font-size: 80px;
+    color: var(--border-light);
+}
+
+.leadership-content {
+    flex: 1;
+}
+
+.leadership-title {
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.leadership-bio {
+    font-size: 16px;
+}
+
+/* Values */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.value-card {
+    background: var(--bg-white);
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.value-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.value-icon i {
+    font-size: 24px;
+    color: var(--gold);
+}
+
+.value-card h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+/* Markets Serve */
+.markets-list {
+    font-size: 18px;
+    color: var(--text-light);
+    line-height: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive inner pages */
+@media (max-width: 768px) {
+    .advantage-grid, .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .leadership-flex {
+        flex-direction: column;
+    }
+    
+    .leadership-image {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   Quality Page
+   ========================================================================== */
+
+.commitment-section {
+    padding: 80px 0;
+}
+
+.commitment-text {
+    font-size: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text-body);
+    line-height: 1.8;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h4 {
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+}
+
+.faq-answer p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.faq-card.active .faq-answer {
+    max-height: 500px;
+    margin-top: 15px;
+}
+
+.faq-card.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.qc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.qc-card {
+    background: var(--bg-white);
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    position: relative;
+}
+
+.qc-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--text-heading);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.qc-stage {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.qc-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+.packaging-flex {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.packaging-content {
+    flex: 1;
+}
+
+.packaging-item {
+    margin-bottom: 30px;
+}
+
+.packaging-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.packaging-item h4 i {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.packaging-image {
+    flex: 0 0 400px;
+}
+
+.third-party {
+    padding: 80px 0;
+}
+
+.third-party-text {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.registrations-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-weight: 600;
+    color: var(--text-heading);
+    font-size: 14px;
+}
+
+.registrations-strip .dot {
+    color: var(--gold);
+}
+

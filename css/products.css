@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Products Page
+   ========================================================================== */
+
+/* Product Showcase Split Layout */
+.product-showcase-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.product-showcase-split.reverse {
+    direction: rtl;
+}
+
+.product-showcase-split.reverse > * {
+    direction: ltr;
+}
+
+.product-showcase-image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.product-showcase-image img, .product-showcase-image video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.product-showcase-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Lookbook Gallery */
+.lookbook-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.lookbook-item {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    background-color: var(--bg-white);
+    position: relative;
+}
+
+.lookbook-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+.lookbook-item:hover img {
+    transform: scale(1.05);
+}
+
+.product-category {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.product-category:last-child {
+    border-bottom: none;
+}
+
+.product-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.category-icon i {
+    font-size: 40px;
+    color: var(--gold);
+}
+
+.product-intro {
+    font-size: 18px;
+    color: var(--text-body);
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.product-details-grid.three-col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.detail-box {
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.detail-box h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.detail-box h3 i {
+    color: var(--gold);
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--text-body);
+}
+
+.custom-list li::before {
+    content: "•";
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    line-height: 1;
+    top: 0;
+}
+
+.customisation-bar {
+    background: var(--text-heading);
+    color: var(--bg-white);
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.customisation-bar strong {
+    color: var(--gold);
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.customisation-bar .dot {
+    color: var(--gold);
+    margin: 0 10px;
+}
+
+/* Process Steps for Sourcing */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-off-white);
+    padding: 15px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+}
+
+.step-num {
+    width: 30px;
+    height: 30px;
+    background: var(--gold);
+    color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.step p {
+    font-weight: 500;
+    margin: 0;
+}
+
+.step-arrow {
+    text-align: center;
+    color: var(--gold);
+    font-size: 20px;
+}
+
+@media (max-width: 992px) {
+    .product-details-grid.three-col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-details-grid, .product-details-grid.three-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .customisation-bar {
+        line-height: 2;
+    }
+}
+
