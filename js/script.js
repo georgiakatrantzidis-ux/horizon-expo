@@ -20,4 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Transparent Header Scroll Logic
+    const transparentHeader = document.querySelector('.transparent-header');
+    if (transparentHeader) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                transparentHeader.classList.add('scrolled');
+            } else {
+                transparentHeader.classList.remove('scrolled');
+            }
+        });
+    }
 });

@@ -10,6 +10,46 @@
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.main-header.transparent-header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: none;
+}
+
+.main-header.transparent-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* White Text Overrides for Transparent Header */
+.main-header.transparent-header:not(.scrolled) .nav-links a {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.main-header.transparent-header:not(.scrolled) .nav-links a:hover {
+    color: var(--gold);
+}
+
+.main-header.transparent-header:not(.scrolled) .logo-img {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.main-header.transparent-header:not(.scrolled) .btn-text {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.main-header.transparent-header:not(.scrolled) .mobile-menu-btn {
+    color: #ffffff;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
 }
 
 .header-container {
@@ -26,14 +66,13 @@
 }
 
 .logo-img {
-    height: 80px;
+    height: 70px;
     width: auto;
     object-fit: contain;
 }
 
 /* Invert the dark logo to white in the dark footer */
 .footer-logo .logo-img {
-    filter: brightness(0) invert(1);
     margin-bottom: 20px;
 }
 

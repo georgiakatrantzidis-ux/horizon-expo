@@ -2,10 +2,84 @@
    Hero Section
    ========================================================================== */
 
+.full-video-hero {
+    position: relative;
+    padding: 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay to make text readable */
+    z-index: 1;
+}
+
+.relative.z-index-2 {
+    position: relative;
+    z-index: 2;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .hero {
     position: relative;
     padding: 40px 0 80px;
     overflow: hidden;
+}
+
+/* Tooltip Styles for Hero Stats */
+.stat-tooltip-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: #fff;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    min-width: 240px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    transition: all 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+    font-family: var(--font-body);
+}
+
+.stat-tooltip-content strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-tooltip-trigger:hover .stat-tooltip-content,
+.stat-tooltip-trigger:active .stat-tooltip-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
 }
 
 .hero-container {
@@ -432,3 +506,76 @@
     margin-bottom: 40px;
 }
 
+
+/* ==========================================================================
+   Global Reach Marquee
+   ========================================================================== */
+
+.global-reach-section {
+    padding: 60px 0 0 0;
+    background-color: var(--bg-off-white);
+    overflow: hidden;
+}
+
+.global-reach-section .section-subtitle {
+    margin-bottom: 10px;
+}
+
+.global-reach-section h2 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    color: var(--text-heading);
+    margin-bottom: 40px;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-content {
+    display: flex;
+}
+
+.country-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-body);
+    border-right: 1px solid var(--border-light);
+}
+
+.country-item:last-child {
+    border-right: none;
+}
+
+.country-item img {
+    height: 24px;
+    width: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
