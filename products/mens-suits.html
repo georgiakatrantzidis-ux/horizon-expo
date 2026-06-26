@@ -329,6 +329,13 @@
             </div>
         </section>
 
+        <!-- Tab Navigation (Next/Prev) -->
+        <div class="container tab-navigation" style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0 20px 0; border-top: 1px solid #eaeaea; margin-top: 20px;">
+            <button id="prev-tab-btn" class="btn" style="display: none; padding: 12px 24px; font-weight: 500; border: 1px solid #ddd; background: transparent; cursor: pointer; align-items: center; gap: 8px;"><i class="ph ph-arrow-left"></i> Previous</button>
+            <div style="flex-grow: 1;"></div>
+            <button id="next-tab-btn" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">Next Category <i class="ph ph-arrow-right"></i></button>
+        </div>
+
         <!-- OEM Private Label Section -->
         <section class="product-category bg-white" style="padding: 80px 0;">
             <div class="container">
@@ -449,54 +456,90 @@
                 });
             }
 
-            // Tab Switching Logic
+            // Tab Switching Logic with Next/Prev
             const subnavLinks = document.querySelectorAll('.shoe-subnav-item a');
             const sections = document.querySelectorAll('.division-section');
+            const prevBtn = document.getElementById('prev-tab-btn');
+            const nextBtn = document.getElementById('next-tab-btn');
+            let currentIndex = 0;
             
-            if (subnavLinks.length > 0 && sections.length > 0) {
-                // Initialize: Hide all sections except the first one
-                sections.forEach((section, index) => {
-                    if (index !== 0) section.style.display = 'none';
+            function switchTab(index) {
+                if (index < 0 || index >= subnavLinks.length) return;
+                
+                currentIndex = index;
+                const link = subnavLinks[currentIndex];
+                const targetId = link.getAttribute('href');
+                
+                // Update active tab styling
+                subnavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show target section, hide others
+                sections.forEach(section => {
+                    if ('#' + section.id === targetId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
                 });
-                subnavLinks[0].classList.add('active');
+                
+                // Update Next/Prev buttons
+                if (prevBtn) prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+                if (nextBtn) {
+                    if (currentIndex === subnavLinks.length - 1) {
+                        nextBtn.style.display = 'none';
+                    } else {
+                        nextBtn.style.display = 'flex';
+                        const nextTitle = subnavLinks[currentIndex + 1].querySelector('.shoe-subnav-title');
+                        if (nextTitle) {
+                            nextBtn.innerHTML = `Next: ${nextTitle.textContent} <i class="ph ph-arrow-right"></i>`;
+                        }
+                    }
+                }
+                
+                // Center active tab on mobile
+                const subnavList = document.querySelector('.shoe-subnav-list');
+                if (subnavList && window.innerWidth <= 768) {
+                    subnavList.scrollTo({
+                        left: link.offsetLeft - (subnavList.offsetWidth / 2) + (link.offsetWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Optional: Smooth scroll back to top of tabs to keep view focused
+                const subnav = document.querySelector('.shoe-subnav');
+                if (subnav && window.scrollY > subnav.offsetTop) {
+                    window.scrollTo({
+                        top: subnav.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
 
-                subnavLinks.forEach(link => {
+            if (subnavLinks.length > 0 && sections.length > 0) {
+                // Initialize
+                switchTab(0);
+
+                subnavLinks.forEach((link, index) => {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
-                        const targetId = link.getAttribute('href');
-                        
-                        // Update active tab styling
-                        subnavLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                        
-                        // Show target section, hide others
-                        sections.forEach(section => {
-                            if ('#' + section.id === targetId) {
-                                section.style.display = 'block';
-                            } else {
-                                section.style.display = 'none';
-                            }
-                        });
-                        
-                        // Center active tab on mobile
-                        const subnavList = document.querySelector('.shoe-subnav-list');
-                        if (subnavList && window.innerWidth <= 768) {
-                            subnavList.scrollTo({
-                                left: link.offsetLeft - (subnavList.offsetWidth / 2) + (link.offsetWidth / 2),
-                                behavior: 'smooth'
-                            });
-                        }
-                        
-                        // Optional: Smooth scroll back to top of tabs to keep view focused
-                        const subnav = document.querySelector('.shoe-subnav');
-                        if (subnav && window.scrollY > subnav.offsetTop) {
-                            window.scrollTo({
-                                top: subnav.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
+                        switchTab(index);
                     });
                 });
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchTab(currentIndex - 1);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchTab(currentIndex + 1);
+                    });
+                }
             }
         });
     </script>
