@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precious Metal Commodities | Horizon Exports</title>
+    <meta name="description" content="Sourcing support for verified B2B buyers dealing in gold doré bars, bullion bars, and silver bars.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/horizon_logo.png" alt="Horizon Exports" class="logo-img">
+            </a>
+            
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="../about/index.html">ABOUT</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="../products/index.html" class="active-link" style="color: var(--gold);">PRODUCTS</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../products/leather-shoes.html">Leather Shoes</a></li>
+                            <li><a href="../products/mens-suits.html">Men's Apparel</a></li>
+                            <li><a href="../products/womens-suits.html">Women's Apparel</a></li>
+                            <li><a href="../products/hospitality-uniforms.html">Hospitality Uniforms</a></li>
+                            <li><a href="../products/precious-metals.html">Precious Metal Commodities</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../process/index.html">PROCESS</a></li>
+                    <li><a href="../quality/index.html">QUALITY</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="../contact/index.html" class="btn btn-text">ENQUIRE NOW</a>
+                <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <style>
+      /* Precious Metals Specific Styles */
+      :root {
+        --pm-gold: #C9A84C;
+        --pm-gold-light: #E2C97E;
+        --pm-dark: #111008;
+        --pm-dark-2: #1c1604;
+        --pm-white: #ffffff;
+        --pm-off-white: #F7F3EC;
+        --pm-text-dark: #1a1208;
+        --pm-text-mid: #4a3f2f;
+        --pm-text-muted: #7a6a52;
+        --pm-border: rgba(201,168,76,0.25);
+        --pm-font-display: 'Playfair Display', Georgia, serif;
+        --pm-font-body: 'Inter', 'Montserrat', sans-serif;
+      }
+
+      .pm-page {
+        font-family: var(--font-body);
+        background: var(--bg-white);
+        color: var(--text-heading);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+
+
+      /* HERO */
+      .pm-hero {
+        background: var(--text-dark);
+        position: relative;
+        overflow: hidden;
+        padding: 5rem 3rem 4.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        min-height: 420px;
+      }
+      .pm-hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 65%);
+        pointer-events: none;
+      }
+      .pm-hero-eyebrow {
+        font-size: 15px;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 1.2rem;
+      }
+      .pm-hero h1 {
+        font-family: var(--font-heading);
+        font-size: 3.2rem;
+        font-weight: 400;
+        color: var(--bg-white);
+        line-height: 1.1;
+        margin-bottom: .5rem;
+      }
+      .pm-hero h1 em {
+        color: var(--gold);
+        font-style: italic;
+      }
+      .pm-hero-divider {
+        width: 40px;
+        height: 1.5px;
+        background: var(--gold);
+        opacity: .6;
+        margin: 1.25rem 0;
+      }
+      .pm-hero-sub {
+        font-size: 16px;
+        font-weight: 500;
+        color: #E2C97E;
+        margin-bottom: .75rem;
+        line-height: 1.55;
+      }
+      .pm-hero-body {
+        font-size: 16px;
+        color: rgba(255,255,255,0.55);
+        font-weight: 300;
+        line-height: 1.85;
+        max-width: 440px;
+      }
+      .pm-hero-img-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .bar-visual {
+        display: flex;
+        gap: 14px;
+        align-items: flex-end;
+      }
+      .bar-card {
+        background: linear-gradient(160deg, #c8a84b 0%, #8a6c25 60%, #5a4510 100%);
+        border-radius: 6px;
+        padding: 1.1rem .9rem;
+        text-align: center;
+        min-width: 100px;
+      }
+      .bar-card.silver {
+        background: linear-gradient(160deg, #c8c8c8 0%, #8a8a8a 60%, #555 100%);
+        transform: scale(0.9);
+      }
+      .bar-card .purity {
+        font-family: var(--font-body);
+        font-size: 15px;
+        letter-spacing: .12em;
+        color: rgba(255,255,255,0.75);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .bar-card .bar-name {
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        color: #fff;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      .bar-card .net-wt {
+        font-size: 11px;
+        letter-spacing: .1em;
+        color: rgba(255,255,255,0.6);
+        text-transform: uppercase;
+      }
+
+      /* SECTIONS */
+      .pm-section { padding: 4.5rem 3rem; max-width: 1100px; margin: 0 auto; }
+      .pm-wrapper { background: #F7F3EC; }
+      .pm-wrapper:nth-child(even) { background: var(--bg-white); }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+      .section-label::before,
+      .section-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border-light);
+      }
+      .section-label span {
+        font-size: 16px;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold);
+        white-space: nowrap;
+      }
+
+      /* COMMODITIES GRID */
+      .commodities-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .commodity-card {
+        background: var(--bg-white);
+        border: 1px solid rgba(0,0,0,0.07);
+        border-top: 3px solid var(--gold);
+        border-radius: 4px;
+        padding: 1.75rem 1.5rem;
+      }
+      .commodity-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 1rem;
+        opacity: .85;
+      }
+      .commodity-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 400;
+        color: var(--text-heading);
+        margin-bottom: .6rem;
+      }
+      .commodity-card p {
+        font-size: 15px;
+        color: var(--text-light);
+        line-height: 1.75;
+      }
+
+      /* BUYER REQUIREMENTS TABLE */
+      .req-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .req-table tr {
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+      .req-table tr:last-child { border-bottom: none; }
+      .req-table td {
+        padding: 1.1rem 1rem;
+        vertical-align: middle;
+        font-size: 16px;
+      }
+      .req-table td:first-child {
+        width: 48px;
+        color: var(--gold);
+        text-align: center;
+      }
+      .req-table td:nth-child(2) {
+        font-weight: 500;
+        color: var(--text-heading);
+        width: 220px;
+      }
+      .req-table td:last-child {
+        color: var(--text-light);
+      }
+
+      /* PROCESS */
+      .process-steps {
+        display: grid;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        position: relative;
+      }
+      .process-steps::before {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: 10%;
+        width: 80%;
+        height: 1px;
+        background: var(--border-light);
+        z-index: 0;
+      }
+      .pm-step {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .pm-step-num {
+        font-size: 15px;
+        letter-spacing: .15em;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .pm-step-circle {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--text-dark);
+        border: 1.5px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.2rem;
+      }
+      .pm-step h4 {
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-heading);
+        margin-bottom: .4rem;
+        letter-spacing: .02em;
+      }
+      .pm-step p {
+        font-size: 16px;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* COMPLIANCE */
+      .compliance-box {
+        background: #F7F3EC;
+        border: 1px solid var(--border-light);
+        border-left: 4px solid var(--gold);
+        border-radius: 4px;
+        padding: 2rem 2.5rem;
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .compliance-icon {
+        font-size: 2rem;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .compliance-box h3 {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--text-heading);
+        margin-bottom: .5rem;
+      }
+      .compliance-box p {
+        font-size: 16px;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      /* CTA BANNER */
+      .cta-banner {
+        background: #1a1a1a;
+        padding: 3.5rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .cta-icon-wrap {
+        width: 64px;
+        height: 64px;
+        border: 1.5px solid var(--border-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+      .cta-text h2 {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: var(--bg-white);
+        line-height: 1.25;
+        margin-bottom: .5rem;
+      }
+      .cta-text p {
+        font-size: 15px;
+        color: rgba(255,255,255,0.5);
+        font-weight: 300;
+        max-width: 400px;
+      }
+      .cta-btn {
+        background: var(--gold);
+        color: var(--text-dark);
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        padding: 1rem 2.25rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+        white-space: nowrap;
+        text-decoration: none;
+        display: inline-block;
+        transition: background .2s;
+      }
+      .cta-btn:hover { background: #E2C97E; }
+
+      /* TRUST BAR */
+      .trust-bar {
+        background: var(--text-dark);
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      .trust-bar-wrapper {
+        background: var(--text-dark);
+      }
+      .trust-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .trust-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .trust-item-icon {
+        color: var(--gold);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .trust-item h4 {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--bg-white);
+        letter-spacing: .04em;
+        margin-bottom: 3px;
+      }
+      .trust-item p {
+        font-size: 11px;
+        color: rgba(255,255,255,0.4);
+        line-height: 1.55;
+      }
+
+      @media (max-width: 900px) {
+        .pm-hero { grid-template-columns: 1fr; }
+        .pm-hero-img-area { display: none; }
+        .commodities-grid { grid-template-columns: 1fr; }
+        .process-steps { grid-template-columns: 1fr 1fr; }
+        .trust-bar { grid-template-columns: 1fr 1fr; }
+        .pm-section { padding: 3rem 1.5rem; }
+      }
+    </style>
+    <main class="pm-page">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumb">
+          <div class="container">
+              <a href="../index.html">Home</a>
+              <i class="ph ph-caret-right"></i>
+              <a href="index.html">Products</a>
+              <i class="ph ph-caret-right"></i>
+              <span>Precious Metal Commodities</span>
+          </div>
+      </div>
+
+      <!-- HERO -->
+      <div class="pm-hero">
+        <div class="pm-hero-content">
+          <p class="pm-hero-eyebrow">Commodity Trading &middot; B2B Export</p>
+          <h1>Precious Metal<br><em>Commodities</em></h1>
+          <div class="pm-hero-divider"></div>
+          <p class="pm-hero-sub">Sourcing support for verified B2B buyers dealing in gold doré bars, bullion bars, and silver bars.</p>
+          <p class="pm-hero-body">Horizon Exports works with verified buyers and trusted trade channels for precious metal commodity requirements. We support inquiries related to gold doré bars, gold bullion bars, and silver bars &mdash; with documentation, specifications, and commercial terms discussed directly based on buyer requirement.</p>
+        </div>
+        <div class="pm-hero-img-area">
+          <div class="bar-visual">
+            <div class="bar-card">
+              <div class="purity">999.9</div>
+              <div class="bar-name">GOLD<br>DORÉ</div>
+              <div class="net-wt">Net Wt 1000g</div>
+            </div>
+            <div class="bar-card" style="transform:scale(1.06); z-index:2;">
+              <div class="purity">999.9</div>
+              <div class="bar-name">GOLD<br>BULLION</div>
+              <div class="net-wt">Net Wt 1000g</div>
+            </div>
+            <div class="bar-card silver">
+              <div class="purity">999.0</div>
+              <div class="bar-name">FINE<br>SILVER</div>
+              <div class="net-wt">Net Wt 1000g</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: COMMODITIES -->
+      <div class="pm-wrapper">
+        <section class="pm-section">
+          <div class="section-label"><span>1. Commodities We Deal In</span></div>
+          <div class="commodities-grid">
+            <div class="commodity-card">
+              <svg class="commodity-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="14" width="36" height="20" rx="3" fill="#C9A84C" opacity=".15"/>
+                <rect x="8" y="18" width="28" height="12" rx="2" fill="#C9A84C" opacity=".4"/>
+                <rect x="12" y="10" width="20" height="8" rx="2" fill="#C9A84C" opacity=".6"/>
+                <text x="22" y="27" text-anchor="middle" font-size="6" fill="#8a6c25" font-family="serif" font-weight="bold">999.9</text>
+              </svg>
+              <h3>Gold Doré Bars</h3>
+              <p>Semi-refined gold bars generally used for further refining and processing. Supplied to verified buyers with full documentation as per trade requirements.</p>
+            </div>
+            <div class="commodity-card">
+              <svg class="commodity-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="16" width="36" height="18" rx="3" fill="#C9A84C" opacity=".2"/>
+                <rect x="8" y="20" width="28" height="10" rx="2" fill="#C9A84C" opacity=".5"/>
+                <text x="22" y="28" text-anchor="middle" font-size="6" fill="#8a6c25" font-family="serif" font-weight="bold">999.9</text>
+              </svg>
+              <h3>Gold Bullion Bars</h3>
+              <p>Investment-grade gold bars supplied based on buyer requirement, purity, weight, and documentation. Available for verified B2B trade transactions.</p>
+            </div>
+            <div class="commodity-card">
+              <svg class="commodity-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="16" width="36" height="18" rx="3" fill="#aaa" opacity=".2"/>
+                <rect x="8" y="20" width="28" height="10" rx="2" fill="#aaa" opacity=".45"/>
+                <text x="22" y="28" text-anchor="middle" font-size="6" fill="#666" font-family="serif" font-weight="bold">999.0</text>
+              </svg>
+              <h3>Silver Bars</h3>
+              <p>Fine silver commodity bars available for verified B2B trade requirements. Specifications, weight, and purity discussed based on buyer needs.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION 2: BUYER REQUIREMENTS -->
+      <div class="pm-wrapper">
+        <section class="pm-section">
+          <div class="section-label"><span>2. Buyer Requirement Details</span></div>
+          <table class="req-table">
+            <tr>
+              <td>📦</td>
+              <td>Commodity Required</td>
+              <td>Gold doré / Gold bullion / Silver bars</td>
+            </tr>
+            <tr>
+              <td>⚖️</td>
+              <td>Quantity Required</td>
+              <td>Weight, volume, or recurring requirement</td>
+            </tr>
+            <tr>
+              <td>🎯</td>
+              <td>Purity / Specification</td>
+              <td>As per buyer requirement</td>
+            </tr>
+            <tr>
+              <td>🌐</td>
+              <td>Destination Country</td>
+              <td>For export and documentation discussion</td>
+            </tr>
+            <tr>
+              <td>📋</td>
+              <td>Documentation Needed</td>
+              <td>KYC, company details, trade documents, compliance requirements</td>
+            </tr>
+          </table>
+        </section>
+      </div>
+
+      <!-- SECTION 3: PROCESS -->
+      <div class="pm-wrapper">
+        <section class="pm-section">
+          <div class="section-label"><span>3. Our Process</span></div>
+          <div class="process-steps">
+            <div class="pm-step">
+              <div class="pm-step-num">01</div>
+              <div class="pm-step-circle">💬</div>
+              <h4>Inquiry Received</h4>
+              <p>Buyer shares commodity requirement.</p>
+            </div>
+            <div class="pm-step">
+              <div class="pm-step-num">02</div>
+              <div class="pm-step-circle">✅</div>
+              <h4>Requirement Verification</h4>
+              <p>We review buyer profile, quantity, destination, and documentation needs.</p>
+            </div>
+            <div class="pm-step">
+              <div class="pm-step-num">03</div>
+              <div class="pm-step-circle">🔍</div>
+              <h4>Specification Discussion</h4>
+              <p>Purity, weight, packaging, sourcing terms, and compliance are discussed.</p>
+            </div>
+            <div class="pm-step">
+              <div class="pm-step-num">04</div>
+              <div class="pm-step-circle">🤝</div>
+              <h4>Commercial Terms</h4>
+              <p>Pricing method, payment terms, documentation, and delivery terms are shared after verification.</p>
+            </div>
+            <div class="pm-step">
+              <div class="pm-step-num">05</div>
+              <div class="pm-step-circle">🚢</div>
+              <h4>Export Coordination</h4>
+              <p>Once terms are agreed, dispatch/export coordination is managed as per trade requirements.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION 4: COMPLIANCE -->
+      <div class="pm-wrapper">
+        <section class="pm-section">
+          <div class="section-label"><span>4. Compliance Note</span></div>
+          <div class="compliance-box">
+            <div class="compliance-icon">🛡️</div>
+            <div>
+              <h3>Verified B2B Trade Only</h3>
+              <p>Precious metal commodities are supplied only to verified B2B buyers subject to documentation, compliance checks, availability, and applicable trade regulations. Final terms are shared only after buyer verification.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CTA BANNER -->
+      <div class="pm-wrapper" style="padding: 20px 0;">
+          <div class="cta-banner">
+            <div class="cta-icon-wrap">📦</div>
+            <div class="cta-text">
+              <h2>Looking for Gold or Silver<br>Commodity Supply?</h2>
+              <p>Share your requirement with our team for specifications, availability, documentation, and commercial discussion.</p>
+            </div>
+            <a href="../contact/index.html" class="cta-btn">Send Inquiry &rarr;</a>
+          </div>
+      </div>
+
+
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html" class="logo">
+                        <img src="../images/horizon_logo.png" alt="Horizon Exports" class="logo-img">
+                    </a>
+                    <p>Horizon Exports is an Indian government recognised export house delivering premium manufactured goods to international B2B buyers.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="mens-suits.html">Men's Suits</a></li>
+                        <li><a href="womens-suits.html">Women's Suiting</a></li>
+                        <li><a href="index.html#hospitality">Hospitality Uniforms</a></li>
+                        <li><a href="index.html#jewellery">Jewellery</a></li>
+                        <li><a href="leather-shoes.html">Leather Shoes Catalog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../process/index.html">Our Process</a></li>
+                        <li><a href="../quality/index.html">Quality Guarantee</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><a href="https://maps.google.com/?q=Agra, Uttar Pradesh, India" target="_blank" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-map-pin"></i> Agra, Uttar Pradesh, India</a></p>
+                    <p><a href="https://wa.me/919717927787" target="_blank" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-phone"></i> +91 97179 27787</a></p>
+                    <p><a href="mailto:info@thehorizonexports.com" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-envelope-simple"></i> info@thehorizonexports.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Horizon Exports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919717927787" class="whatsapp-float" target="_blank" title="Chat with us">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <path id="a" d="M1023.941 765.153c0 5.606-.171 17.766-.508 27.159-.824 22.982-2.646 52.639-5.401 66.151-4.141 20.306-10.392 39.472-18.542 55.425-9.643 18.871-21.943 35.775-36.559 50.364-14.584 14.56-31.472 26.812-50.315 36.416-16.036 8.172-35.322 14.426-55.744 18.549-13.378 2.701-42.812 4.488-65.648 5.3-9.402.336-21.564.505-27.15.505l-504.226-.081c-5.607 0-17.765-.172-27.158-.509-22.983-.824-52.639-2.646-66.152-5.4-20.306-4.142-39.473-10.392-55.425-18.542-18.872-9.644-35.775-21.944-50.364-36.56-14.56-14.584-26.812-31.471-36.415-50.314-8.174-16.037-14.428-35.323-18.551-55.744-2.7-13.378-4.487-42.812-5.3-65.649-.334-9.401-.503-21.563-.503-27.148l.08-504.228c0-5.607.171-17.766.508-27.159.825-22.983 2.646-52.639 5.401-66.151 4.141-20.306 10.391-39.473 18.542-55.426C34.154 93.24 46.455 76.336 61.07 61.747c14.584-14.559 31.472-26.812 50.315-36.416 16.037-8.172 35.324-14.426 55.745-18.549 13.377-2.701 42.812-4.488 65.648-5.3 9.402-.335 21.565-.504 27.149-.504l504.227.081c5.608 0 17.766.171 27.159.508 22.983.825 52.638 2.646 66.152 5.401 20.305 4.141 39.472 10.391 55.425 18.542 18.871 9.643 35.774 21.944 50.363 36.559 14.559 14.584 26.812 31.471 36.415 50.315 8.174 16.037 14.428 35.323 18.551 55.744 2.7 13.378 4.486 42.812 5.3 65.649.335 9.402.504 21.564.504 27.15l-.082 504.226z"></path> </defs> <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="512.001" y1=".978" x2="512.001" y2="1025.023"> <stop offset="0" stop-color="#61fd7d"></stop> <stop offset="1" stop-color="#2bb826"></stop> </linearGradient> <use xlink:href="#a" overflow="visible" fill="url(#b)"></use> <g> <path fill="#FFF" d="M783.302 243.246c-69.329-69.387-161.529-107.619-259.763-107.658-202.402 0-367.133 164.668-367.214 367.072-.026 64.699 16.883 127.854 49.017 183.522l-52.096 190.229 194.665-51.047c53.636 29.244 114.022 44.656 175.482 44.682h.151c202.382 0 367.128-164.688 367.21-367.094.039-98.087-38.121-190.319-107.452-259.706zM523.544 808.047h-.125c-54.767-.021-108.483-14.729-155.344-42.529l-11.146-6.612-115.517 30.293 30.834-112.592-7.259-11.544c-30.552-48.579-46.688-104.729-46.664-162.379.066-168.229 136.985-305.096 305.339-305.096 81.521.031 158.154 31.811 215.779 89.482s89.342 134.332 89.312 215.859c-.066 168.243-136.984 305.118-305.209 305.118zm167.415-228.515c-9.177-4.591-54.286-26.782-62.697-29.843-8.41-3.062-14.526-4.592-20.645 4.592-6.115 9.182-23.699 29.843-29.053 35.964-5.352 6.122-10.704 6.888-19.879 2.296-9.176-4.591-38.74-14.277-73.786-45.526-27.275-24.319-45.691-54.359-51.043-63.543-5.352-9.183-.569-14.146 4.024-18.72 4.127-4.109 9.175-10.713 13.763-16.069 4.587-5.355 6.117-9.183 9.175-15.304 3.059-6.122 1.529-11.479-.765-16.07-2.293-4.591-20.644-49.739-28.29-68.104-7.447-17.886-15.013-15.466-20.645-15.747-5.346-.266-11.469-.322-17.585-.322s-16.057 2.295-24.467 11.478-32.113 31.374-32.113 76.521c0 45.147 32.877 88.764 37.465 94.885 4.588 6.122 64.699 98.771 156.741 138.502 21.892 9.45 38.982 15.094 52.308 19.322 21.98 6.979 41.982 5.995 57.793 3.634 17.628-2.633 54.284-22.189 61.932-43.615 7.646-21.427 7.646-39.791 5.352-43.617-2.294-3.826-8.41-6.122-17.585-10.714z"></path> </g> </g></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        if (navLinks.classList.contains('active')) {
+                            icon.classList.remove('ph-list');
+                            icon.classList.add('ph-x');
+                        } else {
+                            icon.classList.remove('ph-x');
+                            icon.classList.add('ph-list');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="../js/lightbox.js"></script>
+</body>
+</html>

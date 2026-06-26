@@ -29,12 +29,17 @@
 }
 
 /* White Text Overrides for Transparent Header */
-.main-header.transparent-header:not(.scrolled) .nav-links a {
+.main-header.transparent-header:not(.scrolled) .nav-links > li > a {
     color: #ffffff;
     text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
-.main-header.transparent-header:not(.scrolled) .nav-links a:hover {
+.main-header.transparent-header:not(.scrolled) .dropdown-menu a {
+    color: var(--text);
+    text-shadow: none;
+}
+
+.main-header.transparent-header:not(.scrolled) .nav-links > li > a:hover {
     color: var(--gold);
 }
 

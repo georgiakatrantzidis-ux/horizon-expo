@@ -32,10 +32,11 @@
                     <li class="nav-item-dropdown">
                         <a href="products/index.html">PRODUCTS</a>
                         <ul class="dropdown-menu">
-                            <li><a href="products/index.html">Men's & Women's Suits</a></li>
-                            <li><a href="products/index.html#hospitality">Hospitality Uniforms</a></li>
-                            <li><a href="products/index.html#jewellery">Gold & Silver Jewellery</a></li>
-                            <li><a href="products/index.html#leather">Leather Shoes</a></li>
+                            <li><a href="products/leather-shoes.html">Leather Shoes</a></li>
+                            <li><a href="products/mens-suits.html">Men's Apparel</a></li>
+                            <li><a href="products/womens-suits.html">Women's Apparel</a></li>
+                            <li><a href="products/hospitality-uniforms.html">Hospitality Uniforms</a></li>
+                            <li><a href="products/precious-metals.html">Precious Metal Commodities</a></li>
                         </ul>
                     </li>
                     <li><a href="process/index.html">PROCESS</a></li>
@@ -54,15 +55,18 @@
 
     <main>
         <section class="hero full-video-hero">
-            <video class="bg-video" autoplay loop muted playsinline>
+            <video class="bg-video desktop-video" autoplay loop muted playsinline>
                 <source src="public/hero_video.mp4" type="video/mp4">
+            </video>
+            <video class="bg-video mobile-video" autoplay loop muted playsinline>
+                <source src="public/hero_video_mobile.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
             <div class="container relative z-index-2">
                 <div class="hero-content text-center" style="max-width: 900px; margin: 0 auto; padding: 60px 0 40px 0;">
                     <p class="hero-subtitle" style="color: rgba(255,255,255,0.9); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">MANUFACTURER & MERCHANT EXPORTER · AGRA, INDIA</p>
-                    <h1 class="hero-title" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Precision Tailoring.<br><em style="color: var(--gold);">Global Standards.</em><br>Delivered from India.</h1>
-                    <p class="hero-text" style="color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Horizon Exports manufactures premium clothing, footwear (vegan and faux leather), men's and women's apparel, gold &amp; silver jewellery, and provides custom tailoring. We source a broad range of products from India's finest manufacturers for B2B buyers across four continents.</p>
+                    <h1 class="hero-title" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Quality Products.<br><em style="color: var(--gold);">Global Standards.</em><br>Delivered from India.</h1>
+                    <p class="hero-text" style="color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Horizon Exports is a manufacturer and B2B merchant exporter based in Agra, India. We manufacture and export premium footwear, men's and women's apparel, uniforms, and custom clothing, while also dealing in precious metal commodities including gold doré bars, bullion bars, and silver bars. We deliver quality-driven sourcing and export solutions to buyers across four continents.</p>
                     
                     <div class="stats-strip" style="justify-content: center; border-top: 1px solid rgba(255,255,255,0.3);">
                         <div class="stat-item" style="border-color: rgba(255,255,255,0.3);">
@@ -79,10 +83,10 @@
                         </a>
                     </div>
                     
-                    <div class="compliance-logo-center" style="justify-content: center; margin-top: 30px;">
+                    <a href="#merchant-export" class="compliance-logo-center" style="justify-content: center; margin-top: 30px; text-decoration: none; cursor: pointer; display: flex;">
                         <span class="iec-logo" style="border-color: #fff; color: #fff;">Merchant</span>
                         <span class="iec-text" style="color: #fff;">Export</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -98,8 +102,10 @@
             <div class="container story-strip-grid">
                 <div class="story-text">
                     <p>Bharati Dhanwani founded Horizon Exports on a single conviction: that Agra's leather heritage deserved a global platform. She built the footwear division from scratch, developing relationships with international buyers across the US, UAE, Saudi Arabia, UK, Africa, and the Caribbean.</p>
-                    <p>As the business grew, buyers began asking for more. "Can you do suits too?" It was a natural question, Agra's garment makers are as renowned as its cobblers. Bharati called in her sons.</p>
-                    <p>Sagar and Siddharth Dhanwani joined as Co-Founders and built the clothing division, men's and women's suits, hospitality uniforms, and gold &amp; silver jewellery. Each category followed buyer demand. That is why Horizon Exports feels coherent: everything we do, we do because our buyers needed it.</p>
+                    
+                    <p>As the business grew, buyers began asking for more. "Can you support apparel too?" It was a natural question, because Agra has always been known not only for leather craftsmanship, but also for skilled garment production and export-ready manufacturing.</p>
+                    
+                    <p>Sagar and Siddharth Dhanwani joined as Co-Founders and expanded Horizon Exports into a broader sourcing and manufacturing house, covering footwear, men's and women's apparel, uniforms, accessories, and precious metal commodities. Each category followed buyer demand. That is why Horizon Exports feels coherent: everything we do, we do because our buyers needed it.</p>
                 </div>
                 <div class="team-cards-grid">
                     <div class="team-card text-center">
@@ -113,15 +119,15 @@
                         <img src="images/sagar.png" alt="Sagar Dhanwani" class="team-img" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px auto; border: 3px solid var(--gold); display: block;">
                         <h3 class="team-name">Sagar Dhanwani</h3>
                         <p class="team-title">Co-Founder</p>
-                        <p class="team-desc">Leads clothing division, men's/women's suits, hospitality uniforms, and all B2B buyer relationships for garments.</p>
+                        <p class="team-desc">Leads clothing division, hospitality uniforms, and all B2B buyer relationships for garments.</p>
                         <span class="team-domain">Men's &amp; Women's Suits · Hospitality</span>
                     </div>
                     <div class="team-card text-center">
                         <img src="images/sid.png" alt="Siddharth Dhanwani" class="team-img" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px auto; border: 3px solid var(--gold); display: block;">
                         <h3 class="team-name">Siddharth Dhanwani</h3>
                         <p class="team-title">Co-Founder</p>
-                        <p class="team-desc">Co-leads clothing division. Focus on gold &amp; silver jewellery line and new category development in merchant export programme.</p>
-                        <span class="team-domain">Jewellery · New Categories</span>
+                        <p class="team-desc">Co-leads clothing division. Focus on precious metal commodities line and new category development in merchant export programme.</p>
+                        <span class="team-domain">Commodities · New Categories</span>
                     </div>
                 </div>
             </div>
@@ -136,6 +142,7 @@
                     
                     <blockquote class="heritage-quote">
                         <p>"Agra has been the home of master leather artisans and skilled tailors for centuries. When our buyers asked us to do both, we already had the city's heritage behind us. Horizon Exports doesn't do suits and shoes by coincidence. We do both because Agra does both."</p>
+                        <footer style="margin-top: 20px; font-weight: 700; letter-spacing: 1px; font-size: 14px; color: var(--gold);">— BHARATI DHANWANI, CEO</footer>
                     </blockquote>
                     
                     <div class="heritage-text">
@@ -257,10 +264,13 @@
                     </div>
 
                     <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/precious_metal.jpeg" alt="Precious Metal Commodities" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="product-info">
-                            <h3>Gold & Silver Jewellery</h3>
+                            <h3>Precious Metal Commodities</h3>
                             <p>Sourced from India's finest artisan jewellery manufacturers. Supplying gold-plated and sterling silver jewellery to wholesale buyers, retailers, and fashion importers worldwide.</p>
-                            <a href="#" class="btn-link">View Collection <i class="ph ph-arrow-right"></i></a>
+                            <a href="products/precious-metals.html" class="btn-link">View Collection <i class="ph ph-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -269,7 +279,7 @@
 
 
         <!-- Merchant Export Programme Section -->
-        <section class="merchant-export">
+        <section id="merchant-export" class="merchant-export">
             <div class="container merchant-container">
                 <p class="section-subtitle">BEYOND OUR OWN LINES</p>
                 <h2 class="section-title">Merchant Export <em>Programme</em></h2>
@@ -342,6 +352,41 @@
             </div>
         </section>
 
+        <!-- OEM Private Label Section -->
+        <section class="product-category bg-white" style="padding: 80px 0;">
+            <div class="container">
+                <div class="product-showcase-split">
+                    <div class="product-showcase-image" style="border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+                        <img src="OEM%20PRIVATE%20LABEL/3.png" alt="OEM and Private Label Capabilities">
+                    </div>
+                    <div class="product-showcase-content">
+                        <div class="product-header" style="text-align: left; max-width: 100%; margin-bottom: 20px;">
+                            <h2 class="section-title" style="margin-bottom: 15px;">OEM &amp; Private Label Capabilities</h2>
+                            <p class="section-subtitle" style="text-align: left; color: var(--gold); font-weight: 600; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;">Comprehensive Branding & Sourcing Solutions</p>
+                            <p class="product-intro" style="font-size: 16px; line-height: 1.7;">From customized material selection to final packaging, we handle every meticulous detail to ensure your brand is represented with premium quality and care. Build your own identity with our fully customisable manufacturing and merchant export solutions across footwear, apparel, and uniforms.</p>
+                        </div>
+                        
+                        <ul class="capabilities-list">
+                            <li><i class="ph ph-check-circle"></i> Custom Brand Labels</li>
+                            <li><i class="ph ph-check-circle"></i> Premium Poly Bags &amp; Sleeves</li>
+                            <li><i class="ph ph-check-circle"></i> Hang Tags &amp; Swing Tags</li>
+                            <li><i class="ph ph-check-circle"></i> Branded Packaging Options</li>
+                            <li><i class="ph ph-check-circle"></i> Care &amp; Wash Instruction Labels</li>
+                            <li><i class="ph ph-check-circle"></i> Export-Grade Cartons</li>
+                            <li><i class="ph ph-check-circle"></i> Size Labels &amp; Barcode Stickers</li>
+                            <li><i class="ph ph-check-circle"></i> Custom Packaging Boxes</li>
+                            <li><i class="ph ph-check-circle"></i> Promotional &amp; Insert Cards</li>
+                            <li><i class="ph ph-check-circle"></i> Low MOQ &amp; Flexible Orders</li>
+                        </ul>
+                        
+                        <a href="contact/index.html" class="btn btn-dark">
+                            REQUEST PRIVATE LABEL QUOTE <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section id="contact" class="cta-section">
             <div class="container cta-container">
@@ -375,18 +420,18 @@
                 <div class="footer-links">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="products/mens-suits.html">Men's Suits Catalog</a></li>
-                            <li><a href="products/womens-suits.html">Women's Suits Catalog</a></li>
-                        <li><a href="products/index.html#hospitality">Hospitality Uniforms</a></li>
-                        <li><a href="products/index.html#jewellery">Gold &amp; Silver Jewellery</a></li>
-                        <li><a href="products/index.html#leather">Leather Shoes</a></li>
+                        <li><a href="products/leather-shoes.html">Leather Shoes</a></li>
+                        <li><a href="products/mens-suits.html">Men's Apparel</a></li>
+                        <li><a href="products/womens-suits.html">Women's Apparel</a></li>
+                        <li><a href="products/hospitality-uniforms.html">Hospitality Uniforms</a></li>
+                        <li><a href="products/precious-metals.html">Precious Metal Commodities</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><i class="ph ph-map-pin"></i> Agra, Uttar Pradesh, India</p>
-                    <p><i class="ph ph-envelope"></i> info@thehorizonexports.com</p>
-                    <p><i class="ph ph-whatsapp-logo"></i> +91 97179 27787</p>
+                    <p><a href="https://maps.google.com/?q=Agra, Uttar Pradesh, India" target="_blank" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-map-pin"></i> Agra, Uttar Pradesh, India</a></p>
+                    <p><a href="mailto:info@thehorizonexports.com" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-envelope"></i> info@thehorizonexports.com</a></p>
+                    <p><a href="https://wa.me/919717927787" target="_blank" style="color: inherit; text-decoration: none;" class="footer-contact-link"><i class="ph ph-whatsapp-logo"></i> +91 97179 27787</a></p>
                 </div>
             </div>
             <div class="footer-bottom">

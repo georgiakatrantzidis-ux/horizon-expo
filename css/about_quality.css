@@ -60,11 +60,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .advantage-card {
     background: var(--bg-white);
-    padding: 50px;
+    padding: 35px;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Horizon Exports | Leather Footwear Division</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#111008;
+    --dark-soft:#1a1608;
+    --gold:#C9A84C;
+    --gold-soft:#E2C97E;
+    --paper:#F8F4ED;
+    --ivory:#FFFDF8;
+    --product-bg:#F2C99E;
+    --text:#1c1308;
+    --muted:#756650;
+    --line:rgba(28,19,8,.10);
+    --gold-line:rgba(201,168,76,.28);
+    --font-display:'Playfair Display', Georgia, serif;
+    --font-body:'Inter', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:#fff;color:var(--text);font-size:15px;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* HEADER */
+  .topbar{position:sticky;top:0;z-index:99;height:72px;background:var(--dark);border-bottom:1px solid rgba(201,168,76,.16);display:flex;align-items:center;justify-content:space-between;padding:0 42px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{width:38px;height:38px;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-family:var(--font-display);font-size:18px}
+  .brand-copy{color:#fff;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:650;line-height:1.25}
+  .brand-copy small{display:block;color:var(--gold);font-weight:400;font-size:9px;letter-spacing:.16em;margin-top:2px}
+  .nav{display:flex;align-items:center;gap:28px;list-style:none}
+  .nav a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:600}
+  .nav a:hover,.nav .active{color:var(--gold)}
+  .nav .cta{border:1px solid var(--gold);color:var(--gold);padding:8px 17px}
+  .nav .cta:hover{background:var(--gold);color:var(--dark)}
+
+  /* HERO */
+  .hero{background:var(--dark);position:relative;overflow:hidden;padding:72px 42px 68px}
+  .hero:before{content:"";position:absolute;right:-90px;top:-120px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(201,168,76,.12)}
+  .hero:after{content:"";position:absolute;right:60px;bottom:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.10),transparent 62%)}
+  .hero-inner{position:relative;z-index:1;max-width:920px}
+  .eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+  .hero h1{font-family:var(--font-display);font-weight:400;color:#fff;font-size:clamp(2.5rem,5vw,4.45rem);line-height:1.02;letter-spacing:-.015em;margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .rule{width:44px;height:1px;background:var(--gold);opacity:.62;margin:0 0 18px}
+  .hero p{max-width:680px;color:rgba(255,255,255,.58);font-weight:300;font-size:15px;line-height:1.95}
+  .hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:34px}
+  .stat strong{display:block;color:#fff;font-family:var(--font-display);font-size:32px;line-height:1;font-weight:600}.stat span{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.14em;margin-top:6px}
+
+  /* CATEGORY NAV */
+  .cat-nav{position:sticky;top:72px;z-index:90;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(0,0,0,.06)}
+  .cat-scroll{display:flex;overflow-x:auto;scrollbar-width:none}.cat-scroll::-webkit-scrollbar{display:none}
+  .cat-link{min-width:160px;flex:1;padding:15px 18px;text-align:center;border-bottom:3px solid transparent;transition:.2s;background:#fff}
+  .cat-link:hover{background:var(--paper);border-bottom-color:var(--gold-line)}
+  .cat-link b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--text)}
+  .cat-link span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:2px}
+
+  /* COMMON */
+  .wrap{padding:64px 42px}.wrap.alt{background:var(--paper)}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:34px;border-bottom:1px solid var(--line);padding-bottom:22px}
+  .section-kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+  h2{font-family:var(--font-display);font-size:clamp(2rem,3.3vw,3rem);font-weight:400;line-height:1.1;color:var(--text)}
+  h2 em{font-style:italic;color:var(--gold)}
+  .section-desc{max-width:520px;color:var(--muted);font-size:13.5px;line-height:1.8;margin-top:8px}
+  .section-note{flex-shrink:0;border:1px solid var(--gold-line);padding:11px 17px;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:#fff}
+
+  /* IMAGE + CARDS */
+  .lead-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-bottom:22px}
+  .hero-card,.product-card{background:#fff;border:1px solid var(--line);overflow:hidden;transition:box-shadow .25s,transform .25s}
+  .hero-card:hover,.product-card:hover{box-shadow:0 16px 38px rgba(28,19,8,.12);transform:translateY(-2px)}
+  .image-box{background:var(--product-bg);aspect-ratio:1.12/1;display:grid;place-items:center;overflow:hidden;position:relative}
+  .image-box img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .image-box.placeholder:before{content:"PRODUCT IMAGE";letter-spacing:.18em;font-size:10px;color:rgba(28,19,8,.42);font-weight:800;border:1px dashed rgba(28,19,8,.22);padding:10px 18px;background:rgba(255,255,255,.15)}
+  .image-box.placeholder:after{content:attr(data-note);position:absolute;left:16px;right:16px;bottom:14px;text-align:center;font-size:10px;color:rgba(28,19,8,.50);letter-spacing:.08em;text-transform:uppercase}
+  .copy{padding:22px}.style{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:7px}.copy h3{font-family:var(--font-display);font-size:1.35rem;font-weight:400;line-height:1.25;margin-bottom:8px}.copy p{font-size:12.5px;color:var(--muted);line-height:1.75}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.tag{font-size:10.5px;color:#4b3d28;background:var(--paper);border:1px solid var(--line);padding:4px 9px;letter-spacing:.04em}
+  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card-grid.three{grid-template-columns:repeat(3,1fr)}
+  .product-card .copy{padding:16px 17px 19px}.product-card .copy h3{font-size:1.05rem}.product-card .copy p{font-size:11.6px}.product-card .image-box{aspect-ratio:1/1}
+
+  /* SUBDIVISION STRIP */
+  .subdivide{margin-top:28px;background:#fff;border:1px solid var(--line)}
+  .subdivide-title{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:center}.subdivide-title h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem}.subdivide-title p{font-size:12px;color:var(--muted)}
+  .subgrid{display:grid;grid-template-columns:repeat(4,1fr)}.subitem{padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.subitem:nth-child(4n){border-right:0}.subitem b{display:block;font-size:12px;color:var(--text);margin-bottom:5px}.subitem span{display:block;font-size:11.5px;color:var(--muted);line-height:1.6}
+
+  /* B2B */
+  .b2b{background:var(--dark);padding:62px 42px;color:#fff}.b2b h2{color:#fff}.b2b h2 em{color:var(--gold)}.b2b .section-desc{color:rgba(255,255,255,.56)}
+  .b2b-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,168,76,.16);border:1px solid rgba(201,168,76,.16);margin-top:32px}.b2b-item{background:var(--dark-soft);padding:24px 20px;min-height:150px}.b2b-item b{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#fff}.b2b-item p{font-size:12px;color:rgba(255,255,255,.46);line-height:1.75;margin-top:8px}
+
+  /* FINAL CTA */
+  .final{background:var(--paper);padding:56px 42px;text-align:center}.final h2{max-width:720px;margin:0 auto 12px}.final p{max-width:640px;margin:0 auto 26px;color:var(--muted);font-size:14px;line-height:1.8}.btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;padding:13px 24px;border:1px solid var(--dark);background:var(--dark);color:var(--gold)}.btn.alt{background:#fff;color:var(--text);border-color:var(--line)}
+  .designer-note{background:#fff9e8;border-top:1px solid rgba(201,168,76,.35);border-bottom:1px solid rgba(201,168,76,.35);padding:14px 42px;font-size:12px;color:#6f5620;line-height:1.7}.designer-note b{color:#2f250e}
+
+  @media(max-width:1100px){.card-grid{grid-template-columns:repeat(3,1fr)}.b2b-grid{grid-template-columns:repeat(3,1fr)}.subgrid{grid-template-columns:repeat(2,1fr)}.subitem:nth-child(4n){border-right:1px solid var(--line)}.subitem:nth-child(2n){border-right:0}}
+  @media(max-width:850px){.topbar{padding:0 20px}.nav{display:none}.hero,.wrap,.b2b,.final{padding-left:20px;padding-right:20px}.section-head,.lead-grid{grid-template-columns:1fr;display:block}.section-note{display:inline-block;margin-top:18px}.card-grid,.card-grid.three{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:22px}.designer-note{padding-left:20px;padding-right:20px}}
+  @media(max-width:560px){.hero{padding-top:54px}.card-grid,.card-grid.three,.b2b-grid,.subgrid{grid-template-columns:1fr}.subitem,.subitem:nth-child(2n),.subitem:nth-child(4n){border-right:0}.brand-copy{font-size:11px}.cat-link{min-width:145px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="https://horizonexpo.in/">
+    <span class="brand-mark">H</span>
+    <span class="brand-copy">Horizon Exports <small>Manufacturer &amp; Merchant Exporter</small></span>
+  </a>
+  <ul class="nav">
+    <li><a href="https://horizonexpo.in/about/">About</a></li>
+    <li><a class="active" href="https://horizonexpo.in/products/">Products</a></li>
+    <li><a href="https://horizonexpo.in/process/">Process</a></li>
+    <li><a href="https://horizonexpo.in/quality/">Quality</a></li>
+    <li><a class="cta" href="https://horizonexpo.in/contact/">Enquire Now</a></li>
+  </ul>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Footwear Division · Made in Agra · Private Label Ready</p>
+    <h1>Leather Footwear for<br><em>Global B2B Buyers.</em></h1>
+    <div class="rule"></div>
+    <p>Horizon Exports manufactures and sources men’s leather footwear across formal shoes, loafers, boots, slip-ons and sneakers. Every product image below is only a base reference — colour, texture, sole, hardware, packaging and branding can be customised as per buyer specification.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>5</strong><span>Main Divisions</span></div>
+      <div class="stat"><strong>25+</strong><span>Style Families</span></div>
+      <div class="stat"><strong>OEM</strong><span>Private Label</span></div>
+      <div class="stat"><strong>#F2C99E</strong><span>Website Image BG</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="cat-nav">
+  <div class="cat-scroll">
+    <a class="cat-link" href="#oxford"><b>Oxford</b><span>Closed lace formal</span></a>
+    <a class="cat-link" href="#derby"><b>Derby</b><span>Open lace formal</span></a>
+    <a class="cat-link" href="#loafers"><b>Loafers</b><span>Penny · Bit · Tassel</span></a>
+    <a class="cat-link" href="#slipon"><b>Slip-Ons</b><span>Zip · Comfort · Cap-toe</span></a>
+    <a class="cat-link" href="#boots"><b>Boots</b><span>Chelsea · Jodhpur</span></a>
+    <a class="cat-link" href="#sneakers"><b>Sneakers</b><span>Casual comfort</span></a>
+  </div>
+</nav>
+
+<div class="designer-note"><b>Designer note:</b> Use only clean product cut-outs / studio product photos. No text on images. Match every product image background to <b>#F2C99E</b> or the same warm beige studio gradient already approved. Replace placeholder image paths inside <code>/assets/shoes/</code>.</div>
+
+<!-- OXFORD -->
+<section id="oxford" class="wrap">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 01 · Formal Lace-Up · Closed Quarters</p>
+      <h2>Oxford <em>Shoes</em></h2>
+      <p class="section-desc">Most formal lace-up construction. Best for suits, weddings, office wear and premium formal retail. Keep all Oxfords in one division and show sub-styles inside it.</p>
+    </div>
+    <div class="section-note">Use for formal buyers</div>
+  </div>
+  <div class="lead-grid">
+    <article class="hero-card">
+      <div class="image-box placeholder" data-note="Replace: oxford-hero-wingtip.jpg"></div>
+      <div class="copy"><p class="style">Oxford · Hero Style</p><h3>Wingtip Brogue Oxford</h3><p>Closed-lace formal shoe with W-shaped wingtip and decorative perforation. Strong visual product for catalogue landing.</p><div class="tags"><span class="tag">Full Brogue</span><span class="tag">Closed Lacing</span><span class="tag">Formal</span><span class="tag">Custom Colour</span></div></div>
+    </article>
+    <article class="hero-card">
+      <div class="copy"><p class="style">Sub-divisions</p><h3>What comes under Oxford?</h3><p>Use the cards below as final website labels. These names are clean for buyers and correct enough for product browsing.</p><div class="tags"><span class="tag">Plain Toe Oxford</span><span class="tag">Cap-Toe Oxford</span><span class="tag">Wholecut Oxford</span><span class="tag">Wingtip Oxford</span></div></div>
+      <div class="image-box placeholder" data-note="Replace: oxford-detail.jpg"></div>
+    </article>
+  </div>
+  <div class="card-grid">
+    <article class="product-card"><div class="image-box placeholder" data-note="plain-toe-oxford.jpg"></div><div class="copy"><p class="style">Oxford</p><h3>Plain-Toe Oxford</h3><p>Clean smooth front, no cap seam. Minimal formal style.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="cap-toe-oxford.jpg"></div><div class="copy"><p class="style">Oxford</p><h3>Cap-Toe Oxford</h3><p>Boardroom classic with cap seam across the toe.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="wholecut-oxford.jpg"></div><div class="copy"><p class="style">Oxford</p><h3>Wholecut Oxford</h3><p>Premium one-piece upper for luxury formal collections.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="wingtip-oxford.jpg"></div><div class="copy"><p class="style">Oxford</p><h3>Wingtip Brogue Oxford</h3><p>Heritage brogue details with full formal construction.</p></div></article>
+  </div>
+</section>
+
+<!-- DERBY -->
+<section id="derby" class="wrap alt">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 02 · Formal Lace-Up · Open Quarters</p>
+      <h2>Derby <em>Shoes</em></h2>
+      <p class="section-desc">Slightly less formal than Oxford but easier to fit and wear. Good for office, smart casual, export bulk and everyday formal collections.</p>
+    </div>
+    <div class="section-note">Best for volume orders</div>
+  </div>
+  <div class="card-grid">
+    <article class="product-card"><div class="image-box placeholder" data-note="plain-derby.jpg"></div><div class="copy"><p class="style">Derby</p><h3>Plain-Toe Derby</h3><p>Open-lace, clean toe, versatile office shoe.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="cap-toe-derby.jpg"></div><div class="copy"><p class="style">Derby</p><h3>Cap-Toe Derby</h3><p>Structured front with relaxed open lacing.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="wingtip-derby.jpg"></div><div class="copy"><p class="style">Derby</p><h3>Wingtip Brogue Derby</h3><p>Decorative brogue design with comfortable fit.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="textured-derby.jpg"></div><div class="copy"><p class="style">Derby</p><h3>Textured Panel Derby</h3><p>Croc, woven, snake or plain leather panel options.</p></div></article>
+  </div>
+</section>
+
+<!-- LOAFERS -->
+<section id="loafers" class="wrap">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 03 · No Laces · Premium Slip-On Formal</p>
+      <h2>Loafers <em>Collection</em></h2>
+      <p class="section-desc">Use “Loafers” as the main customer-facing category. Inside it, keep sub-divisions clear: Penny, Horsebit, Tassel, Buckle, Kiltie and Formal Loafers.</p>
+    </div>
+    <div class="section-note">Main website category</div>
+  </div>
+  <div class="lead-grid">
+    <article class="hero-card"><div class="image-box placeholder" data-note="horsebit-loafer-hero.jpg"></div><div class="copy"><p class="style">Loafer · Premium</p><h3>Horsebit / Bit Loafer</h3><p>Loafer with metal bit hardware on the vamp. Use this for all gold/silver metal bar loafers.</p><div class="tags"><span class="tag">Horsebit</span><span class="tag">Metal Hardware</span><span class="tag">Slip-On</span></div></div></article>
+    <article class="hero-card"><div class="image-box placeholder" data-note="penny-loafer-hero.jpg"></div><div class="copy"><p class="style">Loafer · Classic</p><h3>Penny Loafer</h3><p>Clean strap across vamp with small slot/opening. This is the most classic loafer sub-category.</p><div class="tags"><span class="tag">Penny Strap</span><span class="tag">Classic</span><span class="tag">No Laces</span></div></div></article>
+  </div>
+  <div class="subdivide">
+    <div class="subdivide-title"><h3>Loafer Sub-Divisions</h3><p>Final website names for designer/menu.</p></div>
+    <div class="subgrid">
+      <div class="subitem"><b>Penny Loafers</b><span>Classic strap with penny slot. Smooth, croc or woven leather.</span></div>
+      <div class="subitem"><b>Horsebit Loafers</b><span>Metal bit/bar hardware. Gold, silver or antique finish.</span></div>
+      <div class="subitem"><b>Tassel Loafers</b><span>Leather tassels on vamp. Formal and semi-formal.</span></div>
+      <div class="subitem"><b>Buckle Loafers</b><span>Side/front buckle strap. Includes monk-inspired slip-ons.</span></div>
+      <div class="subitem"><b>Kiltie Loafers</b><span>Fringe/kiltie flap on the vamp, with buckle or tassel.</span></div>
+      <div class="subitem"><b>Formal Slip-On Loafers</b><span>Clean slip-on formal styles without penny strap or bit.</span></div>
+      <div class="subitem"><b>Mule Loafers</b><span>Backless loafer styles if added later.</span></div>
+      <div class="subitem"><b>Textured Loafers</b><span>Croc, snake, woven, floral embossed and two-tone patterns.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIP-ONS -->
+<section id="slipon" class="wrap alt">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 04 · Easy Wear · Not Classic Loafers</p>
+      <h2>Slip-On <em>Shoes</em></h2>
+      <p class="section-desc">Keep these separate from premium loafers when the design does not look like Penny/Horsebit/Tassel. This is where zip slip-ons, cap-toe slip-ons and comfort slip-ons should go.</p>
+    </div>
+    <div class="section-note">Separate from loafers</div>
+  </div>
+  <div class="card-grid">
+    <article class="product-card"><div class="image-box placeholder" data-note="zip-slip-on.jpg"></div><div class="copy"><p class="style">Slip-On</p><h3>Zipper Slip-On</h3><p>Front zip closure, formal upper. Not Horsebit or Penny.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="cap-toe-slip-on.jpg"></div><div class="copy"><p class="style">Slip-On</p><h3>Cap-Toe Slip-On</h3><p>No laces with formal cap seam. Dress slip-on style.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="comfort-slip-on.jpg"></div><div class="copy"><p class="style">Slip-On</p><h3>Comfort Slip-On</h3><p>Casual sole, elastic sides, everyday comfort range.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="brogue-slip-on.jpg"></div><div class="copy"><p class="style">Slip-On</p><h3>Brogue Slip-On</h3><p>Decorative perforation but no lace closure.</p></div></article>
+  </div>
+</section>
+
+<!-- BOOTS -->
+<section id="boots" class="wrap">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 05 · Ankle &amp; Dress Boot Range</p>
+      <h2>Leather <em>Boots</em></h2>
+      <p class="section-desc">Boots should be a complete separate division. Show Chelsea, Chukka, Jodhpur, Lace-Up Dress Boots and Zip Boots. Strong for UK, US, Europe and winter markets.</p>
+    </div>
+    <div class="section-note">Men’s &amp; women’s possible</div>
+  </div>
+  <div class="card-grid">
+    <article class="product-card"><div class="image-box placeholder" data-note="chelsea-boot.jpg"></div><div class="copy"><p class="style">Boot</p><h3>Chelsea Boot</h3><p>Elastic side panel, pull tab, ankle height.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="jodhpur-boot.jpg"></div><div class="copy"><p class="style">Boot</p><h3>Jodhpur Boot</h3><p>Strap and buckle around ankle. Premium formal boot.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="dress-boot.jpg"></div><div class="copy"><p class="style">Boot</p><h3>Lace-Up Dress Boot</h3><p>Formal brogue/cap-toe boot with laces.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="zip-boot.jpg"></div><div class="copy"><p class="style">Boot</p><h3>Zip Boot</h3><p>Side zip or decorative zip boot designs.</p></div></article>
+  </div>
+</section>
+
+<!-- SNEAKERS -->
+<section id="sneakers" class="wrap alt">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Division 06 · Casual · Modern Comfort</p>
+      <h2>Sneakers <em>&amp; Casual Shoes</em></h2>
+      <p class="section-desc">Use this section for the modern sneaker images: white leather sneakers, black leather sneakers, brown casual runners, knit sneakers, navy athletic sneakers and comfort casual shoes.</p>
+    </div>
+    <div class="section-note">Match same background</div>
+  </div>
+  <div class="lead-grid">
+    <article class="hero-card"><div class="image-box"><img src="studio_product_photograph_of_a_single_athletic_cas.png" alt="Navy knit athletic sneaker on warm beige studio background" loading="lazy"></div><div class="copy"><p class="style">Sneaker · Hero Image</p><h3>Navy Knit Athletic Sneaker</h3><p>Modern knit upper with white cushioned sole and brown accents. Use as a hero card for the comfort sneaker range.</p><div class="tags"><span class="tag">Knit Upper</span><span class="tag">Comfort Sole</span><span class="tag">Casual</span></div></div></article>
+    <article class="hero-card"><div class="image-box placeholder" data-note="white-leather-sneaker.jpg"></div><div class="copy"><p class="style">Sneaker · Minimal</p><h3>White Leather Sneaker</h3><p>Clean minimal sneaker for D2C and export casual collections. Keep this as the first commercial sneaker SKU.</p><div class="tags"><span class="tag">White Leather</span><span class="tag">Minimal</span><span class="tag">Lifestyle</span></div></div></article>
+  </div>
+  <div class="card-grid">
+    <article class="product-card"><div class="image-box placeholder" data-note="black-leather-sneaker.jpg"></div><div class="copy"><p class="style">Sneaker</p><h3>Black Leather Sneaker</h3><p>Dress-casual black leather sneaker.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="brown-casual-runner.jpg"></div><div class="copy"><p class="style">Sneaker</p><h3>Brown Casual Runner</h3><p>Leather casual runner with sporty sole.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="cream-knit-sneaker.jpg"></div><div class="copy"><p class="style">Sneaker</p><h3>Cream Knit Sneaker</h3><p>Lightweight comfort sneaker for everyday wear.</p></div></article>
+    <article class="product-card"><div class="image-box placeholder" data-note="navy-white-sneaker.jpg"></div><div class="copy"><p class="style">Sneaker</p><h3>Navy &amp; White Sneaker</h3><p>Retro-inspired casual sneaker with contrast panels.</p></div></article>
+  </div>
+</section>
+
+<section class="b2b">
+  <div>
+    <p class="section-kicker">OEM · Private Label · Export</p>
+    <h2>Every style can be <em>customised</em>.</h2>
+    <p class="section-desc">This section should reassure B2B buyers that the images are not fixed SKUs. Horizon Exports can customise construction, colour, leather texture, sole, hardware and packaging.</p>
+  </div>
+  <div class="b2b-grid">
+    <div class="b2b-item"><b>Colour &amp; Finish</b><p>Tan, black, brown, burgundy, navy, olive, two-tone, burnished, polished or matte.</p></div>
+    <div class="b2b-item"><b>Texture</b><p>Smooth, croc, snake, woven, floral embossed, suede and nubuck options.</p></div>
+    <div class="b2b-item"><b>Hardware</b><p>Gold, silver, antique brass, black nickel buckles, bits, zips and side trims.</p></div>
+    <div class="b2b-item"><b>Sole</b><p>Leather sole, TPR sole, EVA comfort sole, rubber outsole and formal stacked heel.</p></div>
+    <div class="b2b-item"><b>Branding</b><p>Private label insole, outsole stamp, box branding, dust bag and carton marking.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <p class="section-kicker">Need something else?</p>
+  <h2>Share a reference image — we can develop the style.</h2>
+  <p>If a buyer cannot find the exact shoe, invite them to send a photo, colour, quantity and target market. Horizon Exports can manufacture or source close matching options through verified Agra footwear makers.</p>
+  <div class="btns"><a class="btn" href="https://horizonexpo.in/contact/">Request Catalogue</a><a class="btn alt" href="https://horizonexpo.in/contact/">Send Reference Image</a></div>
+</section>
+
+</body>
+</html>

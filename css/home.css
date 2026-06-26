@@ -23,6 +23,19 @@
     pointer-events: none;
 }
 
+.mobile-video {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .desktop-video {
+        display: none !important;
+    }
+    .mobile-video {
+        display: block !important;
+    }
+}
+
 .bg-video::-webkit-media-controls,
 .bg-video::-webkit-media-controls-enclosure,
 .bg-video::-webkit-media-controls-panel,

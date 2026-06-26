@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Leather Shoes — Horizon Exports</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C; --gold-light: #E2C97E;
+    --dark: #111008; --dark-2: #1c1604;
+    --white: #ffffff; --off-white: #F7F3EC;
+    --text-dark: #1a1208; --text-mid: #4a3f2f; --text-muted: #7a6a52;
+    --border: rgba(201,168,76,0.25); --border-light: rgba(0,0,0,0.07);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text-dark); font-size: 15px; line-height: 1.7; }
+
+  /* NAV */
+  nav { background: var(--dark); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); position: sticky; top: 0; z-index: 100; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-box { width: 38px; height: 38px; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); }
+  .logo-text { font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: .12em; text-transform: uppercase; line-height: 1.3; }
+  .logo-text small { display: block; font-size: 9px; font-weight: 400; color: var(--gold); letter-spacing: .15em; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-enquire { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; padding: .55rem 1.25rem; text-decoration: none; transition: all .2s; }
+  .nav-enquire:hover { background: var(--gold); color: var(--dark); }
+
+  /* BREADCRUMB */
+  .breadcrumb { background: var(--off-white); padding: .7rem 3rem; font-size: 11.5px; color: var(--text-muted); border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { margin: 0 6px; opacity: .4; }
+
+  /* HERO */
+  .hero { background: var(--dark); padding: 5rem 3rem 4.5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%); pointer-events: none; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1.2rem; }
+  .hero h1 { font-family: var(--font-display); font-size: 3rem; font-weight: 400; color: var(--white); line-height: 1.12; margin-bottom: 1rem; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-divider { width: 40px; height: 1.5px; background: var(--gold); opacity: .55; margin-bottom: 1.2rem; }
+  .hero-body { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.9; max-width: 600px; }
+  .hero-meta { margin-top: 1.5rem; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); opacity: .7; }
+
+  /* SECTION */
+  .section { padding: 4.5rem 3rem; }
+  .section.bg-off { background: var(--off-white); }
+  .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.75rem; }
+  .section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section-label span { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--gold); white-space: nowrap; }
+
+  /* COLLECTIONS GRID */
+  .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .collection-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .collection-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .collection-card.luxe {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 3px solid var(--gold);
+  }
+  .card-top {
+    background: var(--off-white);
+    border-top: 3px solid var(--gold);
+    padding: 2rem 1.75rem 1.5rem;
+  }
+  .collection-card.luxe .card-top {
+    border-top: none;
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-eyebrow { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: .6rem; }
+  .card-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--text-dark); margin-bottom: .5rem; }
+  .collection-card.luxe .card-title { color: var(--white); font-size: 1.7rem; }
+  .card-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.75; }
+  .collection-card.luxe .card-desc { color: rgba(255,255,255,0.5); }
+  .card-styles { padding: 1.25rem 1.75rem 1.75rem; }
+  .collection-card.luxe .card-styles { padding: 2.5rem 2rem; background: var(--off-white); }
+  .card-styles-label { font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: .85rem; }
+  .style-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .style-tag { font-size: 11.5px; color: var(--text-mid); background: var(--off-white); border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 2px; }
+  .collection-card.luxe .style-tag { background: var(--white); }
+  .luxe-badge { display: inline-block; background: var(--gold); color: var(--dark); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; padding: 4px 10px; border-radius: 2px; margin-bottom: 1rem; }
+
+  /* PHOTO STRIP */
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+  .photo-block { }
+  .photo-placeholder { background: var(--off-white); border: 1px solid var(--border-light); border-radius: 2px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; overflow: hidden; }
+  .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-caption { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); text-align: center; margin-top: .5rem; }
+
+  /* CUSTOMISATION */
+  .custom-table { width: 100%; border-collapse: collapse; }
+  .custom-table tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .custom-table tr:last-child { border-bottom: none; }
+  .custom-table td { padding: 1rem; font-size: 13.5px; vertical-align: middle; }
+  .custom-table td:first-child { color: var(--gold); font-size: 1.1rem; width: 48px; text-align: center; }
+  .custom-table td:nth-child(2) { font-weight: 500; color: var(--text-dark); width: 220px; }
+  .custom-table td:last-child { color: var(--text-muted); }
+
+  /* VEGAN CTA */
+  .vegan-cta { background: var(--dark); border: 1px solid var(--border); border-radius: 4px; padding: 3rem 2.5rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem; margin-top: 3rem; position: relative; overflow: hidden; }
+  .vegan-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 0% 50%, rgba(201,168,76,0.07) 0%, transparent 55%); pointer-events: none; }
+  .vegan-badge { background: rgba(201,168,76,0.12); border: 1px solid var(--border); border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+  .vegan-text h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--white); margin-bottom: .4rem; line-height: 1.3; }
+  .vegan-text h3 em { color: var(--gold); font-style: italic; }
+  .vegan-text p { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.8; max-width: 480px; }
+  .vegan-tags { display: flex; gap: 8px; margin-top: .85rem; flex-wrap: wrap; }
+  .vegan-tag { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--gold); border: 1px solid var(--border); padding: 4px 10px; border-radius: 2px; }
+  .vegan-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: var(--font-body); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; padding: .9rem 1.75rem; text-decoration: none; white-space: nowrap; transition: all .2s; flex-shrink: 0; display: inline-block; }
+  .vegan-btn:hover { background: var(--gold); color: var(--dark); }
+
+  /* CAN'T FIND */
+  .cant-find { background: var(--off-white); border-top: 1px solid rgba(0,0,0,0.07); padding: 3.5rem 3rem; text-align: center; }
+  .cant-find-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: .75rem; }
+  .cant-find h2 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; color: var(--text-dark); margin-bottom: .75rem; }
+  .cant-find h2 em { color: var(--gold); font-style: italic; }
+  .cant-find p { font-size: 14px; color: var(--text-muted); max-width: 520px; margin: 0 auto 2rem; line-height: 1.8; }
+  .cant-find-options { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+  .option-pill { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border-light); border-radius: 2px; padding: .65rem 1.1rem; font-size: 13px; color: var(--text-mid); font-weight: 500; }
+  .cant-find-btn { display: inline-block; background: var(--gold); color: var(--dark); font-family: var(--font-body); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; padding: 1rem 2.25rem; text-decoration: none; border-radius: 2px; transition: background .2s; }
+  .cant-find-btn:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 3rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; border-top: 1px solid rgba(201,168,76,0.12); }
+  .footer-brand p { font-size: 12.5px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-top: 1rem; font-weight: 300; }
+  .footer-brand .reg { font-size: 11px; color: var(--gold); letter-spacing: .08em; margin-top: .5rem; opacity: .7; }
+  footer h4 { font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: .5rem; }
+  footer ul li a { font-size: 12.5px; color: rgba(255,255,255,0.45); text-decoration: none; }
+  footer ul li a:hover { color: var(--gold); }
+  .footer-contact p { font-size: 12.5px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+  .footer-contact a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-bottom { background: var(--dark-2); text-align: center; padding: 1rem 3rem; font-size: 11.5px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.05); }
+
+  @media (max-width: 900px) {
+    .collections-grid { grid-template-columns: 1fr; }
+    .collection-card.luxe { grid-column: span 1; grid-template-columns: 1fr; }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .vegan-cta { grid-template-columns: 1fr; text-align: center; }
+    .vegan-badge { margin: 0 auto; }
+    footer { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 1.5rem; }
+    .section { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://horizonexpo.in/" class="logo">
+    <div class="logo-box">H</div>
+    <div class="logo-text">Horizon Exports <small>Manufacturer &amp; Merchant Exporter</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://horizonexpo.in/about/">About</a></li>
+    <li><a href="https://horizonexpo.in/products/" class="active">Products</a></li>
+    <li><a href="https://horizonexpo.in/process/">Process</a></li>
+    <li><a href="https://horizonexpo.in/quality/">Quality</a></li>
+    <li><a href="https://horizonexpo.in/contact/" class="nav-enquire">Enquire Now</a></li>
+  </ul>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="https://horizonexpo.in/">Home</a>
+  <span>›</span>
+  <a href="https://horizonexpo.in/products/">Products</a>
+  <span>›</span>
+  Leather Shoes
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Manufacturing Line 03 · Founded by Bharati Dhanwani</p>
+  <h1>Leather Shoes.<br><em>Agra's Heritage.</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-body">Agra is India's leather capital, and our footwear is crafted in this heritage tradition — combining time-tested shoemaking craft with quality-controlled production for international B2B buyers. We manufacture across men's and women's styles in five distinct collections.</p>
+  <p class="hero-meta">5 Collections · Men's &amp; Women's · B2B Export · Private Label Available</p>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="section" style="padding-bottom: 0;">
+  <div class="photo-strip">
+    <div class="photo-block">
+      <div class="photo-placeholder">
+        <img src="https://horizonexpo.in/images/products/shoe-oxford.png" alt="Formal Shoes" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem\'>👞</span>'"/>
+      </div>
+      <p class="photo-caption">Formal Collection</p>
+    </div>
+    <div class="photo-block">
+      <div class="photo-placeholder">
+        <img src="https://horizonexpo.in/images/products/shoe-loafer.png" alt="Loafers" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem\'>👞</span>'"/>
+      </div>
+      <p class="photo-caption">Loafers</p>
+    </div>
+    <div class="photo-block">
+      <div class="photo-placeholder">
+        <img src="https://horizonexpo.in/images/products/shoe-boot.png" alt="Boots" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem\'>👢</span>'"/>
+      </div>
+      <p class="photo-caption">Boots</p>
+    </div>
+  </div>
+</div>
+
+<!-- COLLECTIONS -->
+<div class="section">
+  <div class="section-label"><span>Our Collections</span></div>
+  <div class="collections-grid">
+
+    <!-- FORMAL -->
+    <div class="collection-card">
+      <div class="card-top">
+        <p class="card-eyebrow">Collection 01</p>
+        <h3 class="card-title">Formal</h3>
+        <p class="card-desc">Polished, structured shoes built for boardrooms, ceremonies, and formal occasions. Sharp silhouettes in classic leather finishes.</p>
+      </div>
+      <div class="card-styles">
+        <p class="card-styles-label">Includes</p>
+        <div class="style-tags">
+          <span class="style-tag">Cap Toe</span>
+          <span class="style-tag">Plain Toe</span>
+          <span class="style-tag">Wingtip</span>
+          <span class="style-tag">Formal Pumps</span>
+          <span class="style-tag">Block Heels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LACE-UP -->
+    <div class="collection-card">
+      <div class="card-top">
+        <p class="card-eyebrow">Collection 02</p>
+        <h3 class="card-title">Lace-Up</h3>
+        <p class="card-desc">Versatile lace-up styles that work from business casual to smart formal. Structured fit, clean lines, durable construction.</p>
+      </div>
+      <div class="card-styles">
+        <p class="card-styles-label">Includes</p>
+        <div class="style-tags">
+          <span class="style-tag">Derby</span>
+          <span class="style-tag">Brogue</span>
+          <span class="style-tag">Saddle Shoe</span>
+          <span class="style-tag">Lace-Up Flats</span>
+          <span class="style-tag">Monk Strap</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOAFERS -->
+    <div class="collection-card">
+      <div class="card-top">
+        <p class="card-eyebrow">Collection 03</p>
+        <h3 class="card-title">Loafers</h3>
+        <p class="card-desc">Slip-on leather styles that balance ease with elegance. A perennial bestseller for international buyers across all markets.</p>
+      </div>
+      <div class="card-styles">
+        <p class="card-styles-label">Includes</p>
+        <div class="style-tags">
+          <span class="style-tag">Penny Loafer</span>
+          <span class="style-tag">Tassel Loafer</span>
+          <span class="style-tag">Bit Loafer</span>
+          <span class="style-tag">Formal Loafer</span>
+          <span class="style-tag">Mule</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOTS -->
+    <div class="collection-card" style="grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; border-top: 3px solid var(--gold);">
+      <div class="card-top" style="border-top: none;">
+        <p class="card-eyebrow">Collection 04</p>
+        <h3 class="card-title">Boots</h3>
+        <p class="card-desc">From ankle to mid-calf, our boot range covers the full spectrum of leather boot styles for both men's and women's markets. Built for durability and refined for export.</p>
+      </div>
+      <div class="card-styles" style="display: flex; flex-direction: column; justify-content: center;">
+        <p class="card-styles-label">Includes</p>
+        <div class="style-tags">
+          <span class="style-tag">Chelsea Boot</span>
+          <span class="style-tag">Dress Boot</span>
+          <span class="style-tag">Chukka Boot</span>
+          <span class="style-tag">Ankle Boot</span>
+          <span class="style-tag">Jodhpur Boot</span>
+          <span class="style-tag">Lace-Up Boot</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUXE -->
+    <div class="collection-card luxe">
+      <div class="card-top">
+        <span class="luxe-badge">Premium Tier</span>
+        <p class="card-eyebrow">Collection 05</p>
+        <h3 class="card-title">Luxe Collection</h3>
+        <p class="card-desc">Our highest-tier offering. Full-grain leather, hand-finished details, burnished patinas, and bespoke construction — crafted for buyers who demand the finest. Available in limited quantities with extended lead times.</p>
+      </div>
+      <div class="card-styles">
+        <p class="card-styles-label">What Sets It Apart</p>
+        <div class="style-tags">
+          <span class="style-tag">Hand-Finished</span>
+          <span class="style-tag">Full-Grain Leather</span>
+          <span class="style-tag">Patina &amp; Burnish</span>
+          <span class="style-tag">Custom Last</span>
+          <span class="style-tag">Goodyear Welt</span>
+          <span class="style-tag">Bespoke Packaging</span>
+          <span class="style-tag">Private Label</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CUSTOMISATION -->
+<div class="section bg-off">
+  <div class="section-label"><span>Customisation &amp; OEM</span></div>
+  <table class="custom-table">
+    <tr>
+      <td>🏷️</td>
+      <td>Private Label</td>
+      <td>Your brand name, logo, and label on every pair. Full OEM capability across all collections.</td>
+    </tr>
+    <tr>
+      <td>🎨</td>
+      <td>Colour &amp; Finish</td>
+      <td>Custom colour matching, patina finishes, and burnished effects available on request.</td>
+    </tr>
+    <tr>
+      <td>📐</td>
+      <td>Sizing &amp; Fit</td>
+      <td>Standard international sizing. Custom lasts available for the Luxe Collection and volume orders.</td>
+    </tr>
+    <tr>
+      <td>📦</td>
+      <td>Packaging</td>
+      <td>Custom shoe boxes, tissue, dust bags, and inserts as per buyer specification.</td>
+    </tr>
+    <tr>
+      <td>📋</td>
+      <td>Documentation</td>
+      <td>Full export documentation, certificates of origin, and compliance paperwork on every shipment.</td>
+    </tr>
+  </table>
+
+  <!-- VEGAN CTA -->
+  <div class="vegan-cta">
+    <div class="vegan-badge">🌿</div>
+    <div class="vegan-text">
+      <h3>Looking for <em>Vegan or Faux Leather</em> Footwear?</h3>
+      <p>Many of today's international buyers are shifting towards animal-free alternatives. Through our merchant export programme, we can source and supply vegan leather, faux leather, and PU-based footwear from verified Indian manufacturers — in any style, to your exact specifications.</p>
+      <div class="vegan-tags">
+        <span class="vegan-tag">Vegan Leather</span>
+        <span class="vegan-tag">Faux Leather</span>
+        <span class="vegan-tag">PU Material</span>
+        <span class="vegan-tag">All Styles Available</span>
+        <span class="vegan-tag">Private Label</span>
+      </div>
+    </div>
+    <a href="https://horizonexpo.in/contact/" class="vegan-btn">Enquire Now →</a>
+  </div>
+</div>
+
+<!-- CAN'T FIND -->
+<div class="cant-find">
+  <p class="cant-find-eyebrow">Need Something Else?</p>
+  <h2>Can't Find What<br><em>You're Looking For?</em></h2>
+  <p>Our footwear range goes beyond what's listed here. If you have a specific style, finish, quantity, or construction requirement — share it with us and we'll come back to you with options.</p>
+  <div class="cant-find-options">
+    <div class="option-pill">👟 Different Style</div>
+    <div class="option-pill">🌿 Vegan / Faux Leather</div>
+    <div class="option-pill">🎨 Custom Colour or Finish</div>
+    <div class="option-pill">🏷️ Private Label</div>
+    <div class="option-pill">📦 Bulk or Volume Order</div>
+  </div>
+  <a href="https://horizonexpo.in/contact/" class="cant-find-btn">Share Your Requirement →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:34px;height:34px;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--gold);">H</div>
+      <span style="font-size:13px;font-weight:600;color:var(--white);letter-spacing:.1em;text-transform:uppercase;">Horizon Exports</span>
+    </div>
+    <p>Manufacturer and merchant exporter of premium leather footwear, garments, and precious metal commodities. Headquartered in Agra, India.</p>
+    <p class="reg">IEC · GST · MSME Registered</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="https://horizonexpo.in/">Home</a></li>
+      <li><a href="https://horizonexpo.in/about/">About Us</a></li>
+      <li><a href="https://horizonexpo.in/process/">How It Works</a></li>
+      <li><a href="https://horizonexpo.in/quality/">Quality</a></li>
+      <li><a href="https://horizonexpo.in/contact/">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Products</h4>
+    <ul>
+      <li><a href="#">Men's Apparel</a></li>
+      <li><a href="#">Women's Apparel</a></li>
+      <li><a href="#">Hospitality Uniforms</a></li>
+      <li><a href="#">Leather Shoes</a></li>
+      <li><a href="#">Precious Metal Commodities</a></li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contact Us</h4>
+    <p>Agra, Uttar Pradesh, India<br/>
+    <a href="mailto:info@horizonexports.com">info@horizonexports.com</a><br/>
+    <a href="tel:+919717927787">+91 97179 27787</a></p>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Horizon Exports. All rights reserved. Agra, Uttar Pradesh, India.</div>
+
+</body>
+</html>
