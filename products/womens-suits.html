@@ -96,6 +96,13 @@
             </ul>
         </nav>
 
+        <!-- Tab Navigation (Next/Prev) -->
+        <div class="container tab-navigation">
+            <button id="prev-tab-btn" class="btn" style="display: none;"><i class="ph ph-arrow-left"></i> Previous</button>
+            <div style="flex-grow: 1;"></div>
+            <button id="next-tab-btn" class="btn btn-primary">Next Category <i class="ph ph-arrow-right"></i></button>
+        </div>
+
         <!-- Division 01: Suits -->
         <section id="suits" class="division-section">
             <div class="division-container">
@@ -276,6 +283,28 @@
             </div>
         </section>
 
+        <!-- Custom Specification CTA -->
+        <section class="custom-cta-wrapper">
+            <div class="container">
+                <div class="custom-cta-box">
+                    <div class="custom-cta-left">
+                        <i class="ph ph-coat"></i>
+                        <h3>Didn't find exactly<br>what you're looking for?</h3>
+                    </div>
+                    <div class="custom-cta-middle">
+                        <p>The styles shown above are a selection of our capabilities. We offer full customization for fabrics, colors, fits, lapels, linings, buttons, trims, labels, packaging and more &ndash; exactly as per your brand requirement.</p>
+                        <p class="highlight">Share your reference image, tech pack or product brief with us.</p>
+                        <p class="small-note">Our team will get in touch with you for feasibility, sampling, MOQ, pricing and delivery timeline.</p>
+                    </div>
+                    <div class="custom-cta-right">
+                        <i class="ph ph-file-text"></i>
+                        <a href="../contact/index.html" class="btn-dark">SEND YOUR SPECIFICATION</a>
+                        <span>We typically respond within 24 hours.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container cta-container">
@@ -361,41 +390,90 @@
                 });
             }
 
-            // Scrollspy for Subnav
+            // Tab Switching Logic with Next/Prev
             const subnavLinks = document.querySelectorAll('.shoe-subnav-item a');
-            if (subnavLinks.length > 0) {
-                window.addEventListener('scroll', () => {
-                    let current = '';
-                    subnavLinks.forEach(link => {
-                        const targetId = link.getAttribute('href');
-                        if (targetId && targetId.startsWith('#')) {
-                            const section = document.querySelector(targetId);
-                            if (section) {
-                                const sectionTop = section.offsetTop;
-                                if (pageYOffset >= (sectionTop - 200)) {
-                                    current = targetId;
-                                }
-                            }
-                        }
-                    });
-
-                    if (window.currentActiveTarget !== current) {
-                        window.currentActiveTarget = current;
-                        subnavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === current) {
-                                link.classList.add('active');
-                                const subnav = document.querySelector('.shoe-subnav-list');
-                                if (subnav && window.innerWidth <= 768) {
-                                    subnav.scrollTo({
-                                        left: link.offsetLeft - (subnav.offsetWidth / 2) + (link.offsetWidth / 2),
-                                        behavior: 'smooth'
-                                    });
-                                }
-                            }
-                        });
+            const sections = document.querySelectorAll('.division-section');
+            const prevBtn = document.getElementById('prev-tab-btn');
+            const nextBtn = document.getElementById('next-tab-btn');
+            let currentIndex = 0;
+            
+            function switchTab(index) {
+                if (index < 0 || index >= subnavLinks.length) return;
+                
+                currentIndex = index;
+                const link = subnavLinks[currentIndex];
+                const targetId = link.getAttribute('href');
+                
+                // Update active tab styling
+                subnavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show target section, hide others
+                sections.forEach(section => {
+                    if ('#' + section.id === targetId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
                     }
                 });
+                
+                // Update Next/Prev buttons
+                if (prevBtn) prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+                if (nextBtn) {
+                    if (currentIndex === subnavLinks.length - 1) {
+                        nextBtn.style.display = 'none';
+                    } else {
+                        nextBtn.style.display = 'flex';
+                        const nextTitle = subnavLinks[currentIndex + 1].querySelector('.shoe-subnav-title');
+                        if (nextTitle) {
+                            nextBtn.innerHTML = `Next: ${nextTitle.textContent} <i class="ph ph-arrow-right"></i>`;
+                        }
+                    }
+                }
+                
+                // Center active tab on mobile
+                const subnavList = document.querySelector('.shoe-subnav-list');
+                if (subnavList && window.innerWidth <= 768) {
+                    subnavList.scrollTo({
+                        left: link.offsetLeft - (subnavList.offsetWidth / 2) + (link.offsetWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Optional: Smooth scroll back to top of tabs to keep view focused
+                const subnav = document.querySelector('.shoe-subnav');
+                if (subnav && window.scrollY > subnav.offsetTop) {
+                    window.scrollTo({
+                        top: subnav.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            if (subnavLinks.length > 0 && sections.length > 0) {
+                // Initialize
+                switchTab(0);
+
+                subnavLinks.forEach((link, index) => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchTab(index);
+                    });
+                });
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchTab(currentIndex - 1);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        switchTab(currentIndex + 1);
+                    });
+                }
             }
         });
     </script>

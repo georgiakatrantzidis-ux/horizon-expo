@@ -415,3 +415,8 @@
     color: var(--gold);
 }
 
+@media (max-width: 768px) {
+    .faq-grid, .qc-grid {
+        grid-template-columns: 1fr;
+    }
+}
