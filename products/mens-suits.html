@@ -449,40 +449,53 @@
                 });
             }
 
-            // Scrollspy for Subnav
+            // Tab Switching Logic
             const subnavLinks = document.querySelectorAll('.shoe-subnav-item a');
-            if (subnavLinks.length > 0) {
-                window.addEventListener('scroll', () => {
-                    let current = '';
-                    subnavLinks.forEach(link => {
-                        const targetId = link.getAttribute('href');
-                        if (targetId && targetId.startsWith('#')) {
-                            const section = document.querySelector(targetId);
-                            if (section) {
-                                const sectionTop = section.offsetTop;
-                                if (pageYOffset >= (sectionTop - 200)) {
-                                    current = targetId;
-                                }
-                            }
-                        }
-                    });
+            const sections = document.querySelectorAll('.division-section');
+            
+            if (subnavLinks.length > 0 && sections.length > 0) {
+                // Initialize: Hide all sections except the first one
+                sections.forEach((section, index) => {
+                    if (index !== 0) section.style.display = 'none';
+                });
+                subnavLinks[0].classList.add('active');
 
-                    if (window.currentActiveTarget !== current) {
-                        window.currentActiveTarget = current;
-                        subnavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === current) {
-                                link.classList.add('active');
-                                const subnav = document.querySelector('.shoe-subnav-list');
-                                if (subnav && window.innerWidth <= 768) {
-                                    subnav.scrollTo({
-                                        left: link.offsetLeft - (subnav.offsetWidth / 2) + (link.offsetWidth / 2),
-                                        behavior: 'smooth'
-                                    });
-                                }
+                subnavLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href');
+                        
+                        // Update active tab styling
+                        subnavLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                        
+                        // Show target section, hide others
+                        sections.forEach(section => {
+                            if ('#' + section.id === targetId) {
+                                section.style.display = 'block';
+                            } else {
+                                section.style.display = 'none';
                             }
                         });
-                    }
+                        
+                        // Center active tab on mobile
+                        const subnavList = document.querySelector('.shoe-subnav-list');
+                        if (subnavList && window.innerWidth <= 768) {
+                            subnavList.scrollTo({
+                                left: link.offsetLeft - (subnavList.offsetWidth / 2) + (link.offsetWidth / 2),
+                                behavior: 'smooth'
+                            });
+                        }
+                        
+                        // Optional: Smooth scroll back to top of tabs to keep view focused
+                        const subnav = document.querySelector('.shoe-subnav');
+                        if (subnav && window.scrollY > subnav.offsetTop) {
+                            window.scrollTo({
+                                top: subnav.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
             }
         });
