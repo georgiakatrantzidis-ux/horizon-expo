@@ -208,3 +208,33 @@
     color: #666;
 }
 
+.developed-by {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #888;
+}
+
+.developed-by a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.developed-by a:hover {
+    color: var(--gold);
+}
+
+.heart-animation {
+    display: inline-block;
+    color: #e25555;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
